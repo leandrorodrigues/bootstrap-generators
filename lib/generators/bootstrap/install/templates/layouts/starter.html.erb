@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Starter Template for Bootstrap</title>
+  <title><%= Rails.application.class.parent_name %></title>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -23,27 +23,13 @@
   <%%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%%= link_to "Project name", "#", class: "navbar-brand" %>
+  <div class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap shadow">
+      <%%= link_to "<%= Rails.application.class.parent_name %>", "#", class: "navbar-brand" %>
+      <div class="pull-right">
+        <%%=  link_to (fa_icon 'sign-out'), '#' %>
       </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="container">
+  </div>
+  <div class="container-fluid">
     <%% flash.each do |name, msg| %>
       <%%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -51,7 +37,28 @@
       <%% end %>
     <%% end %>
 
-    <%%= yield %>
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <%%=  link_to (fa_icon 'home', :text => 'Dashboard'), '#', :class => 'nav-link active' %>
+            </li>
+            <li class="nav-item">
+              <%%= link_to (fa_icon 'home', :text => 'Dashboard'), '#', :class => 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%%= link_to (fa_icon 'home', :text => 'Dashboard'), '#', :class => 'nav-link' %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <%%= yield %>
+      </main>
+
+    </div>
+
   </div>
 </body>
 </html>
