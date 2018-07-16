@@ -22,8 +22,5 @@ else
   end
 end
 
-gem 'bootstrap', '~> 4.1.1'
-gem "font-awesome-rails"
-
 gem 'rails', rails
 gem 'uglifier'

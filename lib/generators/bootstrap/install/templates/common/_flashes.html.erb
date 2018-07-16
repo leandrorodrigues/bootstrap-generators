@@ -1,0 +1,23 @@
+<%% flash.any? do %>
+  <div class="modal fade modal-alert " tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content">
+        <%% flash.each do |name, msg| %>
+            <%%
+              name_class = case name
+                when 'error', 'alert' then 'danger'
+                when 'success' then 'success'
+                else 'info'
+              end
+            %>
+            <%%= content_tag :div, class: "modal-body alert-#{ name_class }", role: "alert" do %>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <%%= msg %>
+            <%% end %>
+        <%% end %>
+      </div>
+    </div>
+  </div>
+<%% end %>
