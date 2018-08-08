@@ -24,7 +24,7 @@
     <%- attributes.each do |attribute| -%>
       <tr>
         <td><%= attribute.human_name %>:</td>
-        <td><%%= @<%= singular_table_name %>.<%= attribute.name %> %></td>
+        <td><%%=  <%= snippet_show_attribute('@' + singular_table_name, attribute) %> %></td>
       </tr>
     <%- end -%>
   </table>

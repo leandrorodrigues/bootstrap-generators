@@ -16,7 +16,7 @@
     <thead>
       <tr>
     <% attributes.each do |attribute| -%>
-        <th><%= attribute.human_name %></th>
+        <th><%= attribute.name %></th>
     <% end -%>
         <th class="action"></th>
         <th class="action"></th>
@@ -28,8 +28,7 @@
       <%% @<%= plural_table_name%>.each do |<%= singular_table_name %>| %>
         <%%= content_tag :tr, id: dom_id(<%= singular_table_name %>), class: dom_class(<%= singular_table_name %>) do %>
           <% attributes.each do |attribute| -%>
-      I18n.localize user.modified_at, format: :short
-            <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+            <td><%%= <%= snippet_show_attribute(singular_table_name, attribute) %> %></td>
           <% end -%>
           <td class="action"><%%= link_to <%= singular_table_name %>_path(<%= singular_table_name %>), :class => 'btn btn-sm btn-outline-info' do %><i class="far fa-eye"></i><%% end %></td>
           <td class="action">
