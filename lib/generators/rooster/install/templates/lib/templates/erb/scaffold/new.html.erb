@@ -1,0 +1,15 @@
+<div class="page-header">
+  <h1><%=  plural_table_name.capitalize %></h1>
+</div>
+
+
+<ul class="nav nav-tabs justify-content-end">
+  <li class="nav-item">
+    <%%= link_to (fa_icon 'list', :text => 'List'), <%= plural_table_name %>_path, :class => 'nav-link ' %>
+  </li>
+  <li class="nav-item">
+    <%%= link_to (fa_icon 'plus', :text => 'Add new <%= human_name %>'), new_<%= singular_table_name %>_path, :class => 'nav-link active' %>
+  </li>
+</ul>
+
+<%%= render 'form' %>
