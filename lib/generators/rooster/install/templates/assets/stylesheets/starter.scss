@@ -14,29 +14,28 @@
   //@extend .col-sm-2, .col-form-label, .col-form-label-sm;
 }
 
-.formtastic input[type=text], .formtastic select {
-  @extend .form-control, .form-control-sm;
-}
-.formtastic input[type=checkbox] {
-  @extend .form-check-input;
-}
-.formtastic .boolean label {
-  @extend .form-check;
-}
+.formtastic  {
+  input[type=text], select, input[type=number] {
+    @extend .form-control, .form-control-sm;
+  }
+  input[type=checkbox] {
+    @extend .form-check-input;
+  }
 
-.formtastic li.error input, .formtastic li.error .select {
-  @extend .is-invalid;
+  input[type=submit] {
+    @extend .btn, .btn-primary;
+  }
+  .boolean label {
+    @extend .form-check;
+  }
+  li.error input, .formtastic li.error .select {
+    @extend .is-invalid;
+  }
+  .inline-errors {
+    @extend .invalid-feedback;
+    display: block;
+  }
 }
-
-.formtastic input[type=submit] {
-  @extend .btn, .btn-primary;
-}
-
-.inline-errors {
-  @extend .invalid-feedback;
-  display: block;
-}
-
 
 body {
   font-size: .875rem;

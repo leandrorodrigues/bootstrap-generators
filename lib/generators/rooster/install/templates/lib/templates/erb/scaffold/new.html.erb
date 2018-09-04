@@ -1,14 +1,14 @@
 <div class="page-header">
-  <h1><%=  plural_table_name.capitalize %></h1>
+  <h1><%%= <%= singular_table_name.capitalize %>.model_name.human  %></h1>
 </div>
 
 
 <ul class="nav nav-tabs justify-content-end">
   <li class="nav-item">
-    <%%= link_to (fa_icon 'list', :text => 'List'), <%= plural_table_name %>_path, :class => 'nav-link ' %>
+    <%%= link_to (fa_icon 'list', :text => t_title(:index)), <%= plural_table_name %>_path, :class => 'nav-link' %>
   </li>
   <li class="nav-item">
-    <%%= link_to (fa_icon 'plus', :text => 'Add new <%= human_name %>'), new_<%= singular_table_name %>_path, :class => 'nav-link active' %>
+    <%%= link_to (fa_icon 'plus', :text => t_title(:new) ), new_<%= singular_table_name %>_path, :class => 'nav-link active' %>
   </li>
 </ul>
 

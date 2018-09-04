@@ -15,7 +15,7 @@ module RoosterErb
 
         if attribute.reference?
           first_column = ActiveRecord::Base.connection.columns(attribute.name.pluralize).find { |c| c.type == :string }
-          return 'link_to ' + var + '.' + first_column.name + ', ' + var
+          return 'link_to_if ' + var + ', ' + var + '.try(:' + first_column.name + '), ' + var
         end
 
         var
