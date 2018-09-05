@@ -9,8 +9,16 @@ module RoosterErb
       def snippet_show_attribute(variable, attribute)
         var = variable + '.' + attribute.name
 
-        if attribute.type == :datetime
-          return 'I18n.localize ' + var +', format: :short'
+        if attribute.type == :datetime || attribute.type == :date
+          return 'l ' + var +', format: :short if ' + var + '.present?'
+        end
+
+        if attribute.type == :decimal
+          return 'number_with_precision ' + var + ', precision: 2'
+        end
+
+        if attribute.type == :boolean
+          return 't ' + var
         end
 
         if attribute.reference?

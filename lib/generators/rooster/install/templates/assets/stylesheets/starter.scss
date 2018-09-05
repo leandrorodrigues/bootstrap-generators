@@ -1,25 +1,36 @@
 @import "bootstrap";
 
-.formtastic {
-  @extend .m-3;
-}
-.formtastic ol {
- margin: 0; padding: 0;
-}
-.formtastic li {
-  @extend .form-group, .row;
-}
+
 
 .formtastic label {
   //@extend .col-sm-2, .col-form-label, .col-form-label-sm;
 }
 
 .formtastic  {
-  input[type=text], select, input[type=number] {
+  @extend .m-3;
+  ol {
+    margin: 0; padding: 0;
+  }
+  li {
+    @extend .form-group, .row;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .fragments-group {
+    @extend .form-row;
+    .fragment {
+      padding: 0 5px;
+    }
+  }
+
+  input[type=text], select, input[type=number], textarea {
     @extend .form-control, .form-control-sm;
   }
   input[type=checkbox] {
     @extend .form-check-input;
+  }
+  legend {
+    font-size: inherit;
   }
 
   input[type=submit] {
@@ -101,10 +112,6 @@ body {
   text-transform: uppercase;
 }
 
-.table-responsive .nav-tabs {
-  border-bottom: none;
-}
-
 th.action {
   width: 40px;
 }
@@ -118,4 +125,8 @@ th.action {
 
 [role="main"] {
   padding-top: 80px; /* Space for fixed navbar */
+}
+
+.table-list th {
+  border-top: none;
 }

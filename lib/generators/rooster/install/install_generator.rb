@@ -50,11 +50,19 @@ module Rooster
       end
 
       def copy_controller_builder
-        copy_file "lib/templates/rails/scaffold_controller/controller.rb.tt", "lib/templates/rails/scaffold_controller/controller.rb.tt"
+        copy_file "lib/templates/rails/scaffold_controller/controller.rb.tt"
       end
 
+      def copy_model_builder
+        copy_file "lib/templates/active_record/model/model.rb.tt"
+      end
+
+
+
       def create_layout
-        template "common/_menu.html.#{options[:template_engine]}", "app/views/common/_menu.html.#{options[:template_engine]}"
+        #template "common/_menu.html.#{options[:template_engine]}", "app/views/common/_menu.html.#{options[:template_engine]}"
+        template "common/_index_submenu.html.#{options[:template_engine]}", "app/views/common/_index_submenu.html.#{options[:template_engine]}"
+        template "common/_searchbar.html.#{options[:template_engine]}", "app/views/common/_searchbar.html.#{options[:template_engine]}"
         template "common/_flashes.html.#{options[:template_engine]}", "app/views/common/_flashes.html.#{options[:template_engine]}"
         template "layouts/starter.html.#{options[:template_engine]}", "app/views/layouts/application.html.#{options[:template_engine]}"
       end
