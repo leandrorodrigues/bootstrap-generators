@@ -1,5 +1,5 @@
 <div class="tab-content">
-  <div class="tab-pane fade <%%= 'show active' if params.key?('q') %> p-3" id="search-bar">
+  <div class="tab-pane fade <%%= 'show active' if params['q'].present? %> p-3" id="search-bar">
     <form method="get">
       <div class="input-group">
         <input type="text" name="q" class="form-control" value="<%%= params['q'] %>">

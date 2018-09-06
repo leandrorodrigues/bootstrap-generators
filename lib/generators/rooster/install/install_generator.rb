@@ -61,7 +61,6 @@ module Rooster
 
       def create_layout
         #template "common/_menu.html.#{options[:template_engine]}", "app/views/common/_menu.html.#{options[:template_engine]}"
-        template "common/_index_submenu.html.#{options[:template_engine]}", "app/views/common/_index_submenu.html.#{options[:template_engine]}"
         template "common/_searchbar.html.#{options[:template_engine]}", "app/views/common/_searchbar.html.#{options[:template_engine]}"
         template "common/_flashes.html.#{options[:template_engine]}", "app/views/common/_flashes.html.#{options[:template_engine]}"
         template "layouts/starter.html.#{options[:template_engine]}", "app/views/layouts/application.html.#{options[:template_engine]}"
